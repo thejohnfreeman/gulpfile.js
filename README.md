@@ -22,14 +22,14 @@ gulp [target]
 ## Targets
 
 The default target is `build`, described below. Some targets perform differently
-whether or not the `--dev` option (indicating *development build*, as opposed to
-*production*) is passed on the command line.
+whether or not the `--dev` option (indicating **development** build, as opposed
+to **production**) is passed on the command line.
 
 ### `copy`
 
 1. Copies everything from the source directory (default `app`) to the
    destination directory (default `dev` for development build, `prod` for
-   production).
+   production). Uses [gulp-changed][] to try to achieve an incremental build.
 
 2. All files ending in 'js', 'html', and 'css' pass through a
    [lodash][lodash-template] template parser. This step is primarily useful for
@@ -68,6 +68,7 @@ whether or not the `--dev` option (indicating *development build*, as opposed to
     - `css` adds browser vendor prefixes with [autoprefixer][], minifies with
       [csso][], and suffixes the filename with rev.
 
+[gulp-changed]: https://github.com/sindresorhus/gulp-changed
 [lodash-template]: http://lodash.com/docs#template
 [usemin]: https://github.com/zont/gulp-usemin
 [uglify]: http://lisperator.net/uglifyjs/
@@ -115,6 +116,9 @@ directory changes, it will rebuild the destination directory, and then refresh
 any browsers connected to the LiveReload server.
 
 [LiveReload]: http://livereload.com/
+
+:warning: Works best with the `--dev` option, because [usemin][] obscures many
+dependencies.
 
 ### `clean`
 
