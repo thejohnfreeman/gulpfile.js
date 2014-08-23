@@ -6,14 +6,14 @@ An attempt to write a single [gulpfile][gulp] suitable for most projects.
 
 [gulp]: http://gulpjs.com/
 
-## Install
+## Installation
 
 ```sh
 npm install --global gulp
 curl https://raw.githubusercontent.com/thejohnfreeman/gulpfile.js/master/gulpfile.js -o gulpfile.js
 ```
 
-## Use
+## Usage
 
 ```sh
 gulp [target]
